@@ -35,6 +35,23 @@ class PackageTests(unittest.TestCase):
         ):
             self.assertTrue((ROOT / relative).is_file(), relative)
 
+    def test_skill_entrypoint_and_references(self):
+        skill = ROOT / "skills" / "remote-sensing-vlm-paper-reader"
+        text = (skill / "SKILL.md").read_text(encoding="utf-8")
+        self.assertIn("name: remote-sensing-vlm-paper-reader", text)
+        self.assertIn("description: Use when", text)
+        self.assertIn("Paper Pilot", text)
+        self.assertIn("local PDF", text)
+        for name in (
+            "deep-reading-protocol.md",
+            "remote-sensing-vlm-framework.md",
+            "paper-note-schema.md",
+            "research-ledger-schema.md",
+            "update-policy.md",
+        ):
+            self.assertTrue((skill / "references" / name).is_file(), name)
+            self.assertIn(f"references/{name}", text)
+
 
 if __name__ == "__main__":
     unittest.main()

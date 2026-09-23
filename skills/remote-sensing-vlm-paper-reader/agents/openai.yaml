@@ -1,0 +1,4 @@
+interface:
+  display_name: "Remote Sensing VLM Paper Reader"
+  short_description: "Read remote-sensing VLM papers and track research knowledge"
+  default_prompt: "Use $remote-sensing-vlm-paper-reader to deep-read this paper with PDF page evidence and update my private research ledger."
