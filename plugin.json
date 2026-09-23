@@ -1,0 +1,36 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "remote-sensing-vlm-paper-reader",
+  "version": "0.1.0",
+  "description": "Deep-read remote-sensing vision-language and multimodal change-detection papers, then maintain evidence-linked notes, ideas, and method comparisons.",
+  "author": {
+    "name": "zmx-666-ux"
+  },
+  "license": "MIT",
+  "keywords": [
+    "remote-sensing",
+    "vision-language-model",
+    "multimodal-change-detection",
+    "paper-reading",
+    "research-workflow"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Remote Sensing VLM Paper Reader",
+        "shortDescription": "Deep-read remote-sensing VLM papers and maintain a research ledger.",
+        "longDescription": "Read remote-sensing vision-language and multimodal change-detection papers with page-grounded explanations, structured Word notes, and an evolving Excel research ledger.",
+        "developerName": "zmx-666-ux",
+        "category": "Productivity",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "defaultPrompt": [
+          "Deep-read this remote-sensing VLM paper and update my research ledger.",
+          "Compare these multimodal change-detection papers and identify which ideas remain novel."
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "remote-sensing-vlm-paper-reader",
+  "version": "0.1.0",
+  "description": "Deep-read remote-sensing vision-language and multimodal change-detection papers, then maintain evidence-linked research knowledge.",
+  "author": {
+    "name": "zmx-666-ux"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Remote Sensing VLM Paper Reader",
+    "shortDescription": "Deep-read remote-sensing VLM papers and maintain a research ledger.",
+    "longDescription": "Read remote-sensing vision-language and multimodal change-detection papers with page-grounded explanations, structured Word notes, and an evolving Excel research ledger.",
+    "developerName": "zmx-666-ux",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": "Deep-read this remote-sensing VLM paper with PDF page evidence and update my private research ledger."
+  }
+}

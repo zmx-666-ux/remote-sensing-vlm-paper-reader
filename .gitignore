@@ -1,0 +1,25 @@
+# Execution bookkeeping
+.superpowers/
+
+# User research data
+*.pdf
+private-workspace/
+user-data/
+research-library/
+
+# Credentials and local configuration
+.env
+.env.*
+*.pem
+*.key
+config.local.*
+
+# Generated verification output
+.tmp/
+rendered/
+__pycache__/
+*.py[cod]
+
+# Office lock files
+~$*.docx
+~$*.xlsx
