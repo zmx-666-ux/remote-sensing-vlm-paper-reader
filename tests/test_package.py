@@ -90,6 +90,22 @@ class PackageTests(unittest.TestCase):
         self.assertIn("被已有工作覆盖", innovation_values)
         self.assertIn("已否定", innovation_values)
 
+    def test_documentation_covers_installation_and_fallback(self):
+        english = (ROOT / "README.md").read_text(encoding="utf-8")
+        chinese = (ROOT / "README_zh-CN.md").read_text(encoding="utf-8")
+        self.assertIn("Paper Pilot", english)
+        self.assertIn("MIT", english)
+        self.assertIn("privacy", english.lower())
+        self.assertIn("Paper Pilot", chinese)
+        self.assertIn("MIT", chinese)
+        self.assertIn("隐私", chinese)
+        setup = (ROOT / "docs" / "paper-pilot-setup.md").read_text(encoding="utf-8")
+        self.assertIn("local PDF", setup)
+        self.assertIn(
+            "uvx --from git+https://github.com/aytzey/paper-pilot",
+            setup,
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
