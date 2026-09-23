@@ -74,6 +74,22 @@ class PackageTests(unittest.TestCase):
         ]
         self.assertEqual(headings, required)
 
+    def test_workbook_structure_and_status_lists(self):
+        from openpyxl import load_workbook
+
+        path = ROOT / "skills" / "remote-sensing-vlm-paper-reader" / "assets" / "research-ledger-template.xlsx"
+        wb = load_workbook(path)
+        visible = [ws.title for ws in wb.worksheets if ws.sheet_state == "visible"]
+        self.assertEqual(visible, ["论文索引", "创新假设", "模块方法库", "跨论文对比", "概念术语", "待读问题"])
+        self.assertEqual(wb["_配置"].sheet_state, "hidden")
+        for name in visible:
+            ws = wb[name]
+            self.assertEqual(ws.freeze_panes, "A2")
+            self.assertTrue(ws.auto_filter.ref)
+        innovation_values = [wb["_配置"][f"B{i}"].value for i in range(2, 12)]
+        self.assertIn("被已有工作覆盖", innovation_values)
+        self.assertIn("已否定", innovation_values)
+
 
 if __name__ == "__main__":
     unittest.main()
