@@ -52,6 +52,28 @@ class PackageTests(unittest.TestCase):
             self.assertTrue((skill / "references" / name).is_file(), name)
             self.assertIn(f"references/{name}", text)
 
+    def test_word_template_sections(self):
+        from docx import Document
+
+        path = ROOT / "skills" / "remote-sensing-vlm-paper-reader" / "assets" / "paper-note-template.docx"
+        doc = Document(path)
+        headings = [p.text.strip() for p in doc.paragraphs if p.style.name.startswith("Heading")]
+        required = [
+            "论文身份信息",
+            "一句话问题与核心结论",
+            "阅读前置知识",
+            "方法流程",
+            "关键图表",
+            "关键公式",
+            "实验与证据",
+            "主张、证据与推断",
+            "局限与失败条件",
+            "对研究台账的影响",
+            "主动回忆",
+            "PDF页码索引",
+        ]
+        self.assertEqual(headings, required)
+
 
 if __name__ == "__main__":
     unittest.main()
