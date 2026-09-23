@@ -1,9 +1,28 @@
 import json
 import unittest
 from pathlib import Path
+from zipfile import ZipFile
+import xml.etree.ElementTree as ET
 
 
 ROOT = Path(__file__).resolve().parents[1]
+WORD_NS = "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
+
+
+def docx_headings(path):
+    with ZipFile(path) as archive:
+        root = ET.fromstring(archive.read("word/document.xml"))
+    headings = []
+    for paragraph in root.iter(f"{{{WORD_NS}}}p"):
+        style = paragraph.find(f"{{{WORD_NS}}}pPr/{{{WORD_NS}}}pStyle")
+        if style is None:
+            continue
+        style_name = style.attrib.get(f"{{{WORD_NS}}}val", "")
+        if not style_name.startswith("Heading"):
+            continue
+        text = "".join(node.text or "" for node in paragraph.iter(f"{{{WORD_NS}}}t"))
+        headings.append(text.strip())
+    return headings
 
 
 class PackageTests(unittest.TestCase):
@@ -53,11 +72,8 @@ class PackageTests(unittest.TestCase):
             self.assertIn(f"references/{name}", text)
 
     def test_word_template_sections(self):
-        from docx import Document
-
         path = ROOT / "skills" / "remote-sensing-vlm-paper-reader" / "assets" / "paper-note-template.docx"
-        doc = Document(path)
-        headings = [p.text.strip() for p in doc.paragraphs if p.style.name.startswith("Heading")]
+        headings = docx_headings(path)
         required = [
             "论文身份信息",
             "一句话问题与核心结论",
