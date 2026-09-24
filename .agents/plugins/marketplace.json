@@ -1,0 +1,21 @@
+{
+  "name": "remote-sensing-vlm-paper-reader",
+  "interface": {
+    "displayName": "Remote Sensing VLM Paper Reader"
+  },
+  "plugins": [
+    {
+      "name": "remote-sensing-vlm-paper-reader",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/zmx-666-ux/remote-sensing-vlm-paper-reader.git",
+        "ref": "main"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

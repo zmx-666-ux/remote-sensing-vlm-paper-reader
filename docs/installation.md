@@ -1,6 +1,6 @@
 # Installation
 
-The repository can be used as a local development Skill now. The public Plugin commands below become usable only after the repository is published and its marketplace entry has been verified.
+Install the public Plugin from its GitHub marketplace, or copy only the Skill directory for local development.
 
 ## Requirements
 
@@ -32,7 +32,7 @@ For an upgrade, compare your installed copy with the new release first. Back up 
 
 ## Public GitHub Plugin installation
 
-The intended public identity is `zmx-666-ux/remote-sensing-vlm-paper-reader`. Do not run these commands until that repository is public and the README, release files, and owner have been verified.
+The verified public identity is `zmx-666-ux/remote-sensing-vlm-paper-reader`.
 
 ```powershell
 codex plugin marketplace add zmx-666-ux/remote-sensing-vlm-paper-reader
@@ -41,7 +41,7 @@ codex plugin list --available --json
 codex plugin add remote-sensing-vlm-paper-reader@remote-sensing-vlm-paper-reader
 ```
 
-The first command accepts an `owner/repository` Git marketplace source. The listing steps let you verify the marketplace and Plugin identity before installation. If the published marketplace name differs, use the exact selector shown by `codex plugin list --available --json` instead of guessing. Restart Codex after installing or upgrading the source.
+The first command adds the public Git marketplace. The listing steps let you inspect its resolved name and Plugin entry before installation. Restart Codex and start a new task after installing or upgrading so the Skill is loaded into the new task.
 
 ## Verify behavior
 

@@ -44,6 +44,30 @@ class PackageTests(unittest.TestCase):
         self.assertEqual(compatibility["name"], portable["name"])
         self.assertEqual(compatibility["version"], portable["version"])
 
+    def test_public_marketplace_points_to_repository_root(self):
+        path = ROOT / ".agents" / "plugins" / "marketplace.json"
+        self.assertTrue(path.is_file(), path)
+        marketplace = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(marketplace["name"], "remote-sensing-vlm-paper-reader")
+        self.assertEqual(
+            marketplace["interface"]["displayName"],
+            "Remote Sensing VLM Paper Reader",
+        )
+        self.assertEqual(len(marketplace["plugins"]), 1)
+        plugin = marketplace["plugins"][0]
+        self.assertEqual(plugin["name"], "remote-sensing-vlm-paper-reader")
+        self.assertEqual(
+            plugin["source"],
+            {
+                "source": "url",
+                "url": "https://github.com/zmx-666-ux/remote-sensing-vlm-paper-reader.git",
+                "ref": "main",
+            },
+        )
+        self.assertEqual(plugin["policy"]["installation"], "AVAILABLE")
+        self.assertEqual(plugin["policy"]["authentication"], "ON_INSTALL")
+        self.assertEqual(plugin["category"], "Productivity")
+
     def test_required_root_files(self):
         for relative in (
             "plugin.json",
@@ -120,6 +144,16 @@ class PackageTests(unittest.TestCase):
         self.assertIn(
             "uvx --from git+https://github.com/aytzey/paper-pilot",
             setup,
+        )
+        installation = (ROOT / "docs" / "installation.md").read_text(encoding="utf-8")
+        self.assertNotIn("Do not run these commands until", installation)
+        self.assertIn(
+            "codex plugin marketplace add zmx-666-ux/remote-sensing-vlm-paper-reader",
+            installation,
+        )
+        self.assertIn(
+            "codex plugin add remote-sensing-vlm-paper-reader@remote-sensing-vlm-paper-reader",
+            installation,
         )
 
 
