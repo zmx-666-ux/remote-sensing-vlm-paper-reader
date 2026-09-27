@@ -19,6 +19,8 @@ Return: task and modality; central idea; evidence available; relevance to remote
 
 Start with prerequisites and a plain-language problem statement. Then explain the input-output contract, method pipeline, decisive figure, objectives, evidence, and limitations. Introduce each unfamiliar term before using it technically.
 
+For every central mechanism, expose the complete information path: source signal, input and output tensor shapes, spatial or semantic granularity, operation, training objective that makes the mechanism useful, and the final prediction it can actually support. Explicitly distinguish global image-text similarity, region localization, and pixel-level prediction. Do not attribute localization or temporal reasoning to a global encoder unless the paper supplies the missing mechanism.
+
 For every central equation, use this order:
 
 1. symbol table and units or semantic meaning;
@@ -28,7 +30,9 @@ For every central equation, use this order:
 5. one small numerical or shape example;
 6. assumptions and failure conditions.
 
-End with five active-recall questions. Keep answers separate so the user can attempt retrieval first.
+End with five active-recall questions. Keep answers separate so the user can attempt retrieval first. Adapt the questions to the private learner profile when one exists: retain one transfer question and prioritize mechanisms still marked `developing` or `weak`; do not repeatedly test concepts already supported by recent evidence unless they are prerequisites for the current paper.
+
+When the learner later answers the questions or discusses ideas, switch to the post-reading feedback procedure in [adaptive-learning-loop.md](adaptive-learning-loop.md).
 
 ## Reproduction analysis
 

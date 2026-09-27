@@ -23,6 +23,7 @@ Choose one of five reading modes:
 - Explicit separation of **author claim**, **evidence supports**, and **analysis/inference**.
 - PDF-page citations for methods, figures, equations, results, and limitations.
 - Status transitions for ideas and modules. A later paper changes the existing row instead of erasing research history.
+- Adaptive post-reading feedback that diagnoses learner answers, updates a private mastery profile, and changes the emphasis and question difficulty of later readings.
 
 See the copyright-safe [synthetic example](examples/synthetic-example/example-request.md) for the expected workflow.
 
@@ -33,6 +34,8 @@ See the copyright-safe [synthetic example](examples/synthetic-example/example-re
 3. Start with a request such as:
 
    > Use beginner deep-reading mode on this local PDF. Explain prerequisites for an image-processing student, cite PDF pages, create the twelve-section note, and propose evidence-backed ledger updates.
+
+After reading, submit your own answers or research ideas. The Skill classifies correct understanding, partial understanding, errors, unsupported inferences, and testable hypotheses, then updates only the private learner profile. It keeps the original note stable unless you explicitly request post-reading feedback to be integrated into the same file.
 
 [Paper Pilot](docs/paper-pilot-setup.md) is optional and independently maintained. When available, it can help with paper search, retrieval, consecutive full-text reading, and decisive-page rendering. Without it, the Skill uses a user-provided local PDF and states that online retrieval was not performed.
 

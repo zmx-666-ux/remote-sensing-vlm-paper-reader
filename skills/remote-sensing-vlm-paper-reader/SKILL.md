@@ -20,8 +20,9 @@ The installed Plugin is reusable. PDFs, notes, research ideas, and ledgers are p
 - **Reproduction analysis:** inspect implementation, data, training, compute, and missing details.
 - **Innovation analysis:** test novelty assumptions and identify decisive experiments.
 - **Cross-paper comparison:** reconcile papers that affect the same idea, module, or decision.
+- **Post-reading feedback:** diagnose the learner's answers and reflections, then adapt later readings without rewriting the paper's evidence.
 
-Read [references/deep-reading-protocol.md](references/deep-reading-protocol.md) for the selected mode. Read [references/remote-sensing-vlm-framework.md](references/remote-sensing-vlm-framework.md) when placing or comparing methods. Read the note, ledger, and update references only when producing or modifying those artifacts.
+Read [references/deep-reading-protocol.md](references/deep-reading-protocol.md) for the selected mode. For post-reading answers, questions, or proposed ideas, also read [references/adaptive-learning-loop.md](references/adaptive-learning-loop.md). Read [references/remote-sensing-vlm-framework.md](references/remote-sensing-vlm-framework.md) when placing or comparing methods. Read the note, ledger, and update references only when producing or modifying those artifacts.
 
 ## Acquire evidence
 
@@ -36,6 +37,8 @@ Separate three labels throughout: **author claim**, **evidence supports**, and *
 Before writing, determine the research-library path. If a destination exists, is locked, or has unclear provenance, stop and report the exact path; do not overwrite it.
 
 For a Word note, follow [references/paper-note-schema.md](references/paper-note-schema.md). For Excel updates, follow [references/research-ledger-schema.md](references/research-ledger-schema.md) and [references/update-policy.md](references/update-policy.md).
+
+Do not rebuild a sound paper note merely because the learner later submits answers. Keep the evidence-grounded note stable; create or update its optional post-reading feedback only when requested. Use the learner's demonstrated understanding to change the emphasis and question difficulty of later notes, not to silently change claims about the paper.
 
 ## Preserve evolving knowledge
 

@@ -17,6 +17,19 @@ Create one note per stable paper ID. Name it `Pxxx_年份_论文简称_精读笔
 11. **主动回忆** — five questions first, followed by a visually separated answer section.
 12. **PDF页码索引** — claim/topic, PDF page, figure/table/equation, and note section.
 
+## Optional post-reading feedback
+
+Do not add this section during the first-pass paper read. Add or update it only after the learner submits answers, questions, or reflections and asks for document integration. Keep the original filename unless the user requests versioned files; never add labels such as `修订版` by default.
+
+Use four subsections:
+
+1. **逐题诊断** — learner statement, verdict, what is correct, missing mechanism, corrected formulation, and one transfer check.
+2. **掌握度画像** — `mastered`, `developing`, or `weak` for representation/shapes, objective/supervision, mechanism-to-output chain, evidence boundary, reproduction readiness, and research transfer.
+3. **研究想法评估** — separate valid observation, testable hypothesis, possible overlap, minimum experiment, falsifier, and unresolved literature-search need.
+4. **下一篇适应性重点** — concepts to compress, concepts to expand, required diagrams or shape traces, and the next question difficulty.
+
+Corrections introduced from external literature after the original paper read require their own source links and must not be presented as claims from the paper.
+
 ## Writing quality
 
 - Start each technical section with a short plain-language verdict.

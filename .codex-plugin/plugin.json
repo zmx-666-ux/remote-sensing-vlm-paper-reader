@@ -1,6 +1,6 @@
 {
   "name": "remote-sensing-vlm-paper-reader",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Deep-read remote-sensing vision-language and multimodal change-detection papers, then maintain evidence-linked research knowledge.",
   "author": {
     "name": "zmx-666-ux"

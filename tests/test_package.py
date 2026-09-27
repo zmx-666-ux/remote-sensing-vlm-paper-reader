@@ -33,7 +33,7 @@ class PackageTests(unittest.TestCase):
             "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
         )
         self.assertEqual(manifest["name"], "remote-sensing-vlm-paper-reader")
-        self.assertEqual(manifest["version"], "0.1.0")
+        self.assertEqual(manifest["version"], "0.2.0")
         self.assertEqual(manifest["license"], "MIT")
 
     def test_compatibility_manifest_matches_portable_identity(self):
@@ -86,6 +86,7 @@ class PackageTests(unittest.TestCase):
         self.assertIn("Paper Pilot", text)
         self.assertIn("local PDF", text)
         for name in (
+            "adaptive-learning-loop.md",
             "deep-reading-protocol.md",
             "remote-sensing-vlm-framework.md",
             "paper-note-schema.md",
@@ -94,6 +95,31 @@ class PackageTests(unittest.TestCase):
         ):
             self.assertTrue((skill / "references" / name).is_file(), name)
             self.assertIn(f"references/{name}", text)
+
+    def test_adaptive_feedback_contract(self):
+        skill = ROOT / "skills" / "remote-sensing-vlm-paper-reader"
+        protocol = (skill / "references" / "deep-reading-protocol.md").read_text(
+            encoding="utf-8"
+        )
+        schema = (skill / "references" / "paper-note-schema.md").read_text(
+            encoding="utf-8"
+        )
+        adaptive = (skill / "references" / "adaptive-learning-loop.md").read_text(
+            encoding="utf-8"
+        )
+        for phrase in (
+            "Representation and shapes",
+            "Objective and supervision",
+            "Mechanism-to-output chain",
+            "Evidence boundary",
+            "Reproduction readiness",
+            "Research transfer",
+        ):
+            self.assertIn(phrase, adaptive)
+        self.assertIn("source signal", protocol)
+        self.assertIn("global image-text similarity", protocol)
+        self.assertIn("Optional post-reading feedback", schema)
+        self.assertIn("private learner profile", adaptive)
 
     def test_word_template_sections(self):
         path = ROOT / "skills" / "remote-sensing-vlm-paper-reader" / "assets" / "paper-note-template.docx"
@@ -139,6 +165,8 @@ class PackageTests(unittest.TestCase):
         self.assertIn("Paper Pilot", chinese)
         self.assertIn("MIT", chinese)
         self.assertIn("隐私", chinese)
+        self.assertIn("自适应", chinese)
+        self.assertIn("adaptive", english.lower())
         setup = (ROOT / "docs" / "paper-pilot-setup.md").read_text(encoding="utf-8")
         self.assertIn("local PDF", setup)
         self.assertIn(
